@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.cp": "cpp",
+        "*.l1d_pref": "cpp"
+    }
+}
