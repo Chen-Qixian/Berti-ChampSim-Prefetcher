@@ -12,6 +12,7 @@ def iterateOverDir(fdir, grep):
     return dic
 
 def readFile(fname, grep):
+    print(fname)
     with open(fname) as f:
         raw = f.read()
         line = re.findall(grep, raw)
