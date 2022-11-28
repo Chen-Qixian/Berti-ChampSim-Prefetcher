@@ -739,10 +739,11 @@ void CACHE::l1d_prefetcher_initialize()
     latency_table_init(cpu);
     history_table_init(cpu);
 
-    std::cout << "History Sets: " << HISTORY_TABLE_SET << std::endl;
-    std::cout << "History Ways: " << HISTORY_TABLE_WAY << std::endl;
-    std::cout << "BERTI Size: " << BERTI_TABLE_SIZE << std::endl;
-    std::cout << "BERTI Stride Size: " << BERTI_TABLE_STRIDE_SIZE << std::endl;
+    // @CQX : temporily remove debug outputs
+    // std::cout << "History Sets: " << HISTORY_TABLE_SET << std::endl;
+    // std::cout << "History Ways: " << HISTORY_TABLE_WAY << std::endl;
+    // std::cout << "BERTI Size: " << BERTI_TABLE_SIZE << std::endl;
+    // std::cout << "BERTI Stride Size: " << BERTI_TABLE_STRIDE_SIZE << std::endl;
 }
 
 void CACHE::l1d_prefetcher_operate(uint64_t addr, uint64_t ip, uint8_t cache_hit,

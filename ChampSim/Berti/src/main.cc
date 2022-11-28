@@ -1667,7 +1667,7 @@ int main(int argc, char **argv)
                 cout << " heartbeat IPC: " << heartbeat_ipc << " cumulative IPC: " << cumulative_ipc;
                 cout << " (Simulation time: " << elapsed_hour << " hr " << elapsed_minute << " min " << elapsed_second << " sec) " << endl;
 
-                CACHE *cache = &ooo_cpu[i].L1D;
+                // CACHE *cache = &ooo_cpu[i].L1D;
 
                 // cout << "Heartbeat L1D Prefetch TIMELY:" << setw(10) << cache->pf_useful;
                 // cout << setw(10) << "USELESS:" << setw(10) << cache->pf_useless;
@@ -1842,25 +1842,26 @@ int main(int argc, char **argv)
 
 #ifndef CRC2_COMPILE
         ooo_cpu[i].core_final_stats();
-        print_roi_stats(i, &ooo_cpu[i].ITLB);
-        print_roi_stats(i, &ooo_cpu[i].DTLB);
-        print_roi_stats(i, &ooo_cpu[i].STLB);
+        // @CQX temporily remove debug outputs
+        // print_roi_stats(i, &ooo_cpu[i].ITLB);
+        // print_roi_stats(i, &ooo_cpu[i].DTLB);
+        // print_roi_stats(i, &ooo_cpu[i].STLB);
         print_roi_stats(i, &ooo_cpu[i].L1D);
-        print_roi_stats(i, &ooo_cpu[i].L1I);
+        // print_roi_stats(i, &ooo_cpu[i].L1I);
 #ifndef PERFECT_BTB
-        print_roi_stats(i, &ooo_cpu[i].BTB);
+        // print_roi_stats(i, &ooo_cpu[i].BTB);
 #endif
-        print_roi_stats(i, &ooo_cpu[i].L2C);
+        // print_roi_stats(i, &ooo_cpu[i].L2C);
 #ifdef PUSH_DTLB_PB
-        print_roi_stats(i, &ooo_cpu[i].DTLB_PB);
+        // print_roi_stats(i, &ooo_cpu[i].DTLB_PB);
 #endif
         // MMU Caches
-        print_roi_stats(i, &ooo_cpu[i].PTW.PSCL5);
-        print_roi_stats(i, &ooo_cpu[i].PTW.PSCL4);
-        print_roi_stats(i, &ooo_cpu[i].PTW.PSCL3);
-        print_roi_stats(i, &ooo_cpu[i].PTW.PSCL2);
+        // print_roi_stats(i, &ooo_cpu[i].PTW.PSCL5);
+        // print_roi_stats(i, &ooo_cpu[i].PTW.PSCL4);
+        // print_roi_stats(i, &ooo_cpu[i].PTW.PSCL3);
+        // print_roi_stats(i, &ooo_cpu[i].PTW.PSCL2);
 #endif
-        print_roi_stats(i, &uncore.LLC);
+        // print_roi_stats(i, &uncore.LLC);
 
         //@Vishal: print stats
         cout << endl;
@@ -1911,14 +1912,15 @@ int main(int argc, char **argv)
 
 #ifndef CRC2_COMPILE
     uncore.LLC.llc_replacement_final_stats();
-    print_dram_stats();
-    print_branch_stats();
+    // @CQX temporily remove debug outputs
+    // print_dram_stats();
+    // print_branch_stats();
 #endif
 
-    cout << "DRAM PAGES: " << DRAM_PAGES << endl;
-    cout << "Allocated PAGES: " << allocated_pages << endl;
+    // cout << "DRAM PAGES: " << DRAM_PAGES << endl;
+    // cout << "Allocated PAGES: " << allocated_pages << endl;
 
-    cout << "Chris reached here" << endl;
+    cout << "======END: Chris reached here=======" << endl;
 
     //@Vasudha: Dumping page table
     /*     map <uint64_t, uint64_t>::iterator pr = page_table.begin();
