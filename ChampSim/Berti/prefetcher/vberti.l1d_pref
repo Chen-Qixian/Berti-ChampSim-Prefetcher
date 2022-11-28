@@ -888,5 +888,5 @@ void CACHE::l1d_prefetcher_cache_fill(uint64_t v_addr, uint64_t addr,
 
 void CACHE::l1d_prefetcher_final_stats()
 {
-    // cout << "@@CQX: This is Berti stats output" << endl;
+    cout << "@@CQX: This is Berti stats output" << endl;
 }

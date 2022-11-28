@@ -1874,7 +1874,7 @@ int main(int argc, char **argv)
         cout << "Allocated PAGES: " << allocated_pages << endl;
     }
 
-    // cout << "@@CQX: output some stats from l1d for observing" << endl;
+    cout << "@@CQX: output some stats from l1d for observing" << endl;
     for (uint32_t i = 0; i < NUM_CPUS; i++)
     {
         ooo_cpu[i].l1i_prefetcher_final_stats();
@@ -1883,7 +1883,7 @@ int main(int argc, char **argv)
         ooo_cpu[i].DTLB.dtlb_prefetcher_final_stats();
         ooo_cpu[i].STLB.stlb_prefetcher_final_stats();
     }
-    // cout << "@@CQX: end of stats output" << endl;
+    cout << "@@CQX: end of stats output" << endl;
 
     uncore.LLC.llc_prefetcher_final_stats();
 
@@ -1918,7 +1918,7 @@ int main(int argc, char **argv)
     cout << "DRAM PAGES: " << DRAM_PAGES << endl;
     cout << "Allocated PAGES: " << allocated_pages << endl;
 
-    // cout << "Chris reached here" << endl;
+    cout << "Chris reached here" << endl;
 
     //@Vasudha: Dumping page table
     /*     map <uint64_t, uint64_t>::iterator pr = page_table.begin();
