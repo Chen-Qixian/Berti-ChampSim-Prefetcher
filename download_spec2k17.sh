@@ -7,7 +7,7 @@
 #
 
 DIR="$1"
-URL="https://hpca23.cse.tamu.edu/champsim-traces/speccpu/"
+URL="https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/"
 TRACES=(
     '602.gcc_s-734B.champsimtrace.xz'
     '602.gcc_s-1850B.champsimtrace.xz'

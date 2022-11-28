@@ -270,22 +270,22 @@ if [[ "$BUILD" == "Y" ]]; then
 
     echo -n "Building Berti..."
     cd $BERTI
-    run_compile "./build_champsim.sh hashed_perceptron no vberti no no no no no\
+     run_compile "./build_champsim.sh hashed_perceptron no vberti no no no no no\
             lru lru lru srrip drrip lru lru lru 1 no"
     cd $DIR
     
     # Build MLOP, IPCP and IP Stride
     cd $PF
     echo -n "Building MLOP..."
-    run_compile "./build_champsim.sh hashed_perceptron no mlop_dpc3 no no no no no\
+     run_compile "./build_champsim.sh hashed_perceptron no mlop_dpc3 no no no no no\
             lru lru lru srrip drrip lru lru lru 1 no"
     
     echo -n "Building IPCP..."
-    run_compile "./build_champsim.sh hashed_perceptron no ipcp_isca2020 no no no no\
+     run_compile "./build_champsim.sh hashed_perceptron no ipcp_isca2020 no no no no\
             no lru lru lru srrip drrip lru lru lru 1 no"
     
     echo -n "Building IP Stride..."
-    run_compile "./build_champsim.sh hashed_perceptron no ip_stride no no no no no\
+     run_compile "./build_champsim.sh hashed_perceptron no ip_stride no no no no no\
             lru lru lru srrip drrip lru lru lru 1 no"
 
     if [[ "$FULL" == "Y" ]]; then
@@ -413,7 +413,6 @@ for i in $(ls $PF/bin/*1core*); do
 done
 
 # Run in parallel
-
 if [[ "$MULTI" == "Y" ]]; then
     for i in $(ls $BERTI/bin/*4core*); do
         if [[ "$LOGGED" == "Y" ]]; then
