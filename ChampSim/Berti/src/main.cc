@@ -1663,15 +1663,15 @@ int main(int argc, char **argv)
                     cumulative_ipc = (1.0 * ooo_cpu[i].num_retired) / current_core_cycle[i];
                 float heartbeat_ipc = (1.0 * ooo_cpu[i].num_retired - ooo_cpu[i].last_sim_instr) / (current_core_cycle[i] - ooo_cpu[i].last_sim_cycle);
 
-                cout << "Heartbeat CPU " << i << " instructions: " << ooo_cpu[i].num_retired << " cycles: " << current_core_cycle[i];
-                cout << " heartbeat IPC: " << heartbeat_ipc << " cumulative IPC: " << cumulative_ipc;
-                cout << " (Simulation time: " << elapsed_hour << " hr " << elapsed_minute << " min " << elapsed_second << " sec) " << endl;
+                // cout << "Heartbeat CPU " << i << " instructions: " << ooo_cpu[i].num_retired << " cycles: " << current_core_cycle[i];
+                // cout << " heartbeat IPC: " << heartbeat_ipc << " cumulative IPC: " << cumulative_ipc;
+                // cout << " (Simulation time: " << elapsed_hour << " hr " << elapsed_minute << " min " << elapsed_second << " sec) " << endl;
 
-                // CACHE *cache = &ooo_cpu[i].L1D;
+                CACHE *cache = &ooo_cpu[i].L1D;
 
-                // cout << "Heartbeat L1D Prefetch TIMELY:" << setw(10) << cache->pf_useful;
-                // cout << setw(10) << "USELESS:" << setw(10) << cache->pf_useless;
-                // cout << setw(10) << "LATE:" << setw(10) << cache->pf_late << endl;
+                cout << "Heartbeat L1D Prefetch TIMELY:" << setw(10) << cache->pf_useful;
+                cout << setw(10) << "USELESS:" << setw(10) << cache->pf_useless;
+                cout << setw(10) << "LATE:" << setw(10) << cache->pf_late << endl;
 
                 ooo_cpu[i].next_print_instruction += STAT_PRINTING_PERIOD;
 
