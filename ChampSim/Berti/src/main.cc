@@ -1667,11 +1667,20 @@ int main(int argc, char **argv)
                 // cout << " heartbeat IPC: " << heartbeat_ipc << " cumulative IPC: " << cumulative_ipc;
                 // cout << " (Simulation time: " << elapsed_hour << " hr " << elapsed_minute << " min " << elapsed_second << " sec) " << endl;
 
-                CACHE *cache = &ooo_cpu[i].L1D;
+                if (warmup_complete[i])
+                {
+                    CACHE *cache = &ooo_cpu[i].L1D;
 
-                cout << "Heartbeat L1D Prefetch TIMELY:" << setw(10) << cache->pf_useful;
-                cout << setw(10) << "USELESS:" << setw(10) << cache->pf_useless;
-                cout << setw(10) << "LATE:" << setw(10) << cache->pf_late << endl;
+                    cout << "Heartbeat L1D Prefetch TIMELY:" << setw(10) << cache->pf_useful;
+                    cout << setw(10) << "USELESS:" << setw(10) << cache->pf_useless;
+                    cout << setw(10) << "LATE:" << setw(10) << cache->pf_late;
+                    cout << setw(10) << "LOAD_ACCESS:" << setw(10) << cache->roi_access[i][0];
+                    cout << setw(10) << "PREFETCH_ACCESS:" << setw(10) << cache->roi_access[i][2];
+                    cout << setw(10) << "LOAD_HIT:" << setw(10) << cache->roi_hit[i][0];
+                    cout << setw(10) << "PREFETCH_HIT:" << setw(10) << cache->roi_hit[i][2];
+                    cout << setw(10) << "LOAD_MISS:" << setw(10) << cache->roi_miss[i][0];
+                    cout << setw(10) << "PREFETCH_MISS:" << setw(10) << cache->roi_miss[i][2] << endl;
+                }
 
                 ooo_cpu[i].next_print_instruction += STAT_PRINTING_PERIOD;
 
